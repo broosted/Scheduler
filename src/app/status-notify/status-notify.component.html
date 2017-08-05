@@ -1,0 +1,15 @@
+<div class="col-lg-6 col-sm-6">
+    <h4>Job Status:</h4>
+    <span class="label label-default" *ngIf="jobnotrun">{{jobname}} Not Running</span>
+    <span class="label label-primary" *ngIf="jobrun">{{jobname}} Running</span>
+    <span class="label label-success" *ngIf="jobsuccess">Job Success</span>
+    <span class="label label-danger" *ngIf="jobfailed">Job Failed</span>
+</div>
+
+<div class="col-lg-6 col-sm-6">
+    <h4>Scheduler Status:</h4>
+    <span class="label label-default" *ngIf="jobnotrun">Not Running</span>
+    <span class="label label-primary" *ngIf="jobrun">Running</span>
+    <span class="label label-success" *ngIf="scheduleron">On</span>
+    <span class="label label-danger" *ngIf="scheduleroff">Off</span>
+</div>

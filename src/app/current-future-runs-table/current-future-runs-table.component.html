@@ -1,0 +1,47 @@
+<div class="col-xs-12">
+    <h3>Current and Future Run Dates</h3>
+    <table class="table table-striped table-hover ">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Report Name</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let transfer of pagedItems; let i = index" [attr.data-index]="i">
+                <td>{{i}}</td>
+                <td>{{transfer.reportname}}</td>
+                <td>{{transfer.date | date}}</td>
+                <td>{{transfer.date | date:'shortTime'}}</td>
+                <td><a href="#" class="btn btn-primary">Edit</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <div class="container" style="text-align:center">
+        <ul *ngIf="pager.pages && pager.pages.length" class="pagination pagination-sm">
+            <li [ngClass]="{disabled:pager.currentPage === 1}">
+                <a (click)="setPage(1)">First</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage === 1}">
+                <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+            </li>
+            <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                <a (click)="setPage(page)">{{page}}</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                <a (click)="setPage(pager.currentPage + 1)">Next</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                <a (click)="setPage(pager.totalPages)">Last</a>
+            </li>
+        </ul>
+
+
+
+    </div>
+</div>
